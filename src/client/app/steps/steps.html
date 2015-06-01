@@ -1,0 +1,22 @@
+<div class="grid-100 steps">
+    <table>
+        <tr>
+            <td class="step" ng-class="{current: vm.isCurrent(step)}" ng-repeat="step in vm.steps">
+                <a href="#" ui-sref="{{step.state}}" ng-class="{disabled: !step.isActive}">
+                    {{step.name}}
+                </a>
+            </td>
+        </tr>
+    </table>
+    <div ui-view="tabContent"></div>
+    <div class="clearfix">
+        <button class="" ng-show="vm.getPrevStep()" ng-click="vm.gotoPrevStep()">
+            <i class="fa fa-arrow-left"></i>
+            Zurück
+        </button>
+        <button class="float-right" ng-show="vm.getNextStep()" ng-click="vm.gotoNextStep()">
+            Weiter
+            <i class="fa fa-arrow-right"></i>
+        </button>
+    </div>
+</div>

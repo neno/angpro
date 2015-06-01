@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html ng-app="refro">
+<head>
+    <style>
+        /* This helps the ng-show/ng-hide animations start at the right place. */
+        /* Since Angular has this but needs to load, this gives us the class early. */
+        .ng-hide { display: none!important; }
+    </style>
+    <title ng-bind="title">sanitasRefro</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <base href="/">
+
+    <!-- build:css styles/lib.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="/bower_components/toastr/toastr.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/app.css-->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/.tmp/styles.css">
+    <!-- endinject -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/fonts.css">
+    <link rel="stylesheet" href="styles/unsemantic-grid-responsive-no-ie7.css">
+    <!-- endbuild -->
+    <script>
+
+        // All ui-states for steps are defined in app/steps/steps.route.js
+        var steps = [
+            {
+                // Step uses a static state 'steps.personen'
+                // with predefined module, controller and view in app/personen
+                name: 'Personen',
+                state: 'steps.personen',
+                url: 'personen'
+            },
+            {
+                // Step has no predefined state - it gets created dynamically and
+                // uses the default step controller and default step view in app/default_step
+                name: 'Angebot',
+                state: 'steps.angebot',
+                url: 'angebot'
+            },
+            {
+                // Step has no predefined state - it gets created dynamically and
+                // uses the default step controller but loads a view from the server
+                name: 'Offerte',
+                state: 'steps.offerte',
+                url: 'offerte',
+                template: '/templates/offerte.html'
+            },
+            {
+                // Step has no predefined state - it gets created dynamically and
+                // uses the default step controller but loads a view from the server
+                name: 'Antrag',
+                state: 'steps.antrag',
+                url: 'antrag',
+                template: '/templates/antrag.html'
+            }
+        ];
+    </script>
+</head>
+<body>
+    <div ng-include="'app/layout/shell.html'"></div>
+    <!-- build:js js/lib.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="/bower_components/extras.angular.plus/ngplus-overlay.js"></script>
+    <script src="/bower_components/moment/moment.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/bower_components/toastr/toastr.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="/bower_components/lodash/lodash.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js js/app.js-->
+    <!-- inject:js -->
+    <script src="/src/client/app/app.module.js"></script>
+    <script src="/src/client/app/blocks/exception/exception.module.js"></script>
+    <script src="/src/client/app/blocks/logger/logger.module.js"></script>
+    <script src="/src/client/app/blocks/router/router.module.js"></script>
+    <script src="/src/client/app/core/core.module.js"></script>
+    <script src="/src/client/app/default-step/default-step.module.js"></script>
+    <script src="/src/client/app/layout/layout.module.js"></script>
+    <script src="/src/client/app/personen/personen.module.js"></script>
+    <script src="/src/client/app/steps/steps.module.js"></script>
+    <script src="/src/client/app/blocks/exception/exception-handler.provider.js"></script>
+    <script src="/src/client/app/blocks/exception/exception.js"></script>
+    <script src="/src/client/app/blocks/logger/logger.js"></script>
+    <script src="/src/client/app/blocks/router/router-helper.provider.js"></script>
+    <script src="/src/client/app/core/config.js"></script>
+    <script src="/src/client/app/core/constants.js"></script>
+    <script src="/src/client/app/core/core.route.js"></script>
+    <script src="/src/client/app/core/dataservice.js"></script>
+    <script src="/src/client/app/core/lodash.js"></script>
+    <script src="/src/client/app/default-step/default-step.controller.js"></script>
+    <script src="/src/client/app/layout/shell.controller.js"></script>
+    <script src="/src/client/app/personen/personen.controller.js"></script>
+    <script src="/src/client/app/steps/steps.controller.js"></script>
+    <script src="/src/client/app/steps/steps.route.js"></script>
+    <!-- endinject -->
+
+    <!-- inject:templates:js -->
+    <!-- endinject -->
+    <!-- endbuild -->
+</body>
+</html>

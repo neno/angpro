@@ -1,0 +1,72 @@
+<div class="personal-data">
+    <h3 class="grid-100">Bitte erfassen Sie alle Personen, für die Sie eine Prämie berechnen möchten</h3>
+
+    <div class="grid-100">
+        <table class="personal-data">
+            <tr>
+                <td>Vertragsbeginn:</td>
+                <td>PLZ oder Ort in der Schweiz:</td>
+            </tr>
+            <tr>
+                <td><input type="date"/> <span class="information">i</span></td>
+                <td><input type="text"/> <span class="information" click-to-show="commuters" effects="slideDown|slideUp" duration="1000">i</span> für Grenzgänger</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="grid-100">
+        <div class="commuters">
+            Als Grenzgänger benötigen Sie einen besonderen Versicherungsschutz, welchen Sie zurzeit online nicht
+            abschliessen können. Für eine persönliche Beratung können Sie gerne unser Kontaktformular ausfüllen oder Sie
+            kontaktieren uns telefonisch.<br>
+            <br>
+            Grenzgänger<br>
+            Kontaktformular: <a href="//www.sanitas.com/grenzgaenger">www.sanitas.com/grenzgaenger</a><br>
+            Kostenfreie Telefonnummer: 0800 22 88 44 22 (Mo-Fr 08.00 bis 20.00 Uhr)<br>
+        </div>
+    </div>
+
+    <div class="separator-20"></div>
+
+    <div class="grid-100">
+        <table class="personal-data">
+            <tr>
+                <td>
+                    Vorname
+                </td>
+                <td>
+                    Geschlecht
+                </td>
+                <td>
+                    Geburtsdatum
+                </td>
+            </tr>
+            <tr ng-repeat="client in model.clients track by $index" class="slide-down">
+                <td>
+                    <input type="text" ng-model="client.name" placeholder="Person {{$index + 1}}"/>
+                </td>
+                <td>
+                    <select ng-model="client.sex" ng-options="sex.label for sex in selectSexModel"></select>
+                </td>
+                <td>
+                    <input type="date" ng-model="client.birthday"/>
+                </td>
+                <td>
+                    <button ng-click="removeClient(client)" ng-show="model.clients.length>1">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                </td>
+            </tr>
+        </table>
+        <div class="separator-10"></div>
+        <button ng-click="addClient()">
+            Weitere Person erfassen
+            <i class="fa fa-plus"></i>
+        </button>
+
+        <button class="float-right" ng-click="gotoNextStep()">
+            Weiter
+            <i class="fa fa-arrow-right"></i>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'themixbold';
+    src: url('../fonts/TheMix-Bold-webfont.eot');
+    src: url('../fonts/TheMix-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/TheMix-Bold-webfont.woff2') format('woff2'),
+    url('../fonts/TheMix-Bold-webfont.woff') format('woff'),
+    url('../fonts/TheMix-Bold-webfont.ttf') format('truetype'),
+    url('../fonts/TheMix-Bold-webfont.svg#themixbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'themixlight';
+    src: url('../fonts/TheMix-Light-webfont.eot');
+    src: url('../fonts/TheMix-Light-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/TheMix-Light-webfont.woff2') format('woff2'),
+    url('../fonts/TheMix-Light-webfont.woff') format('woff'),
+    url('../fonts/TheMix-Light-webfont.ttf') format('truetype'),
+    url('../fonts/TheMix-Light-webfont.svg#themixlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

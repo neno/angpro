@@ -1,0 +1,20 @@
+# Ignore Node & Bower
+###################
+node_modules
+bower_components
+.tmp
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+
+
+# Ignore the build dir
+build
+
+// Don't track the components file
+// It gets updated automatically
+_3.components.scss
