@@ -10,60 +10,46 @@
     function dataservice($http, $q, $window, $state, logger, _) {
         var steps = [];
         var premiumCalculator = {};
-        var service = {
-            getSteps: getSteps,
-            getFirstStep: getFirstStep,
-            getStep: getStep,
-            redirectUnlessActive: redirectUnlessActive,
-            activateStep: activateStep,
-            deactivateStep: deactivateStep,
-            getNextStep: getNextStep,
-            getPrevStep: getPrevStep,
-            getPremiumCalculator: getPremiumCalculator,
-            addClient: addClient
-        };
 
-        return service;
-
-        function getSteps() {
+        this.getSteps = function () {
             if (!steps.length) {
                 steps = $window.steps;
             }
             return steps;
         }
 
-        function getFirstStep() {
-            return getSteps()[0];
+        this.getFirstStep = function () {
+            return this.getSteps()[0];
         }
 
-        function getStep(state) {
-            var step = _.find(getSteps(), {'state': state});
+        this.getStep = function (state) {
+            var step = _.find(this.getSteps(), {'state': state});
             return step;
         }
 
-        function activateStep(step) {
+        this.activateStep = function (step) {
             step.isActive = true;
         }
 
-        function deactivateStep(step) {
+        service.deactivateStep = function (step) {
             step.isActive = false;
         }
 
-        function getNextStep(state) {
-            var step = getStep(state);
+        this.getNextStep = function (state) {
+            var step = this.getStep(state);
             var idx = getStepIndex(step);
-            var nextStep = getSteps()[idx + 1];
+            var nextStep = this.getSteps()[idx + 1];
             return nextStep;
         }
 
-        function getPrevStep(state) {
-            var step = getStep(state);
+        this.getPrevStep = function (state) {
+            var step = this.getStep(state);
             var idx = getStepIndex(step);
-            var prevStep = getSteps()[idx - 1];
+            var prevStep = this.getSteps()[idx - 1];
             return prevStep;
         }
 
-        function redirectUnlessActive(step) {
+        this.redirectUnlessActive = function (step) {
             if(!step.isActive) {
                 var lastStep = getActiveStep();
                 if(lastStep) {
@@ -74,20 +60,22 @@
             }
         }
 
-        function getStepIndex(step) {
+        var = getStepIndex = function (step) {
             return _.indexOf(getSteps(), step);
         }
 
-        function getActiveStep() {
+        var = getActiveStep = function () {
             return _.findLast(steps, 'isActive', true);
         }
 
-        function getPremiumCalculator() {
+        this.getPremiumCalculator = function () {
             return premiumCalculator;
         }
 
-        function addClient() {
+        this.addClient = function () {
 
         }
+        
+        return this;
     }
 })();
